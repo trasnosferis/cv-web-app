@@ -1,0 +1,7 @@
+{
+  "name": "cv-web-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
