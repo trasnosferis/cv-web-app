@@ -1,0 +1,46 @@
+<div id="content">
+  <div class="width-center">
+    <div class="floating">
+      <ion-icon color="light" style="font-size: 100px;" name="person"></ion-icon>
+    </div>
+  </div>
+
+  <div class="card-resize">
+    <ion-card id="card-container">
+      <div id="desc_a" class="item-description">
+        <ion-item (click)="changeClass('desc_a', 'desc_b')" lines="none" detail="{{isMobileScreen}}" button="{{isMobileScreen}}">
+          <ion-icon name="person" slot="start"></ion-icon>
+          <ion-label>Perfil personal</ion-label>
+        </ion-item>
+        <div id="description">
+          <ion-card style="width: 100%; height: 100%; margin: 0px;">
+            <ion-card-content>
+              <strong>Samuel Enrique Iglesias Castillo</strong><br>
+              Me destaco por mi interés hacia el aprendizaje y nuevas tecnologías, que ha dado lugar al 
+              conocimiento que ahora poseo, me gusta solucionar problemas y evolucionar constantemente con el
+              objetivo de superar mis metas personales con dedicación y profesionalismo.
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </div>
+
+      <div id="desc_b" class="item-description-close">
+        <ion-item (click)="changeClass('desc_b', 'desc_a')" lines="none" detail="{{isMobileScreen}}" button="{{isMobileScreen}}">
+          <ion-icon name="briefcase" slot="start"></ion-icon>
+          <ion-label>Perfil profesional</ion-label>
+        </ion-item>
+        <div id="description">
+          <ion-card style="width: 100%; height: 100%; margin: 0px;">
+            <ion-card-content>
+              <strong>Desarrollador de sofware</strong><br>
+              Mis puntos fuertes son el desarrollo de aplicaciones móviles multiplataforma y Web 
+              Apps usando Ionic Framework, Angular, Cordova, Capacitor, Node.js, 
+              Typescript, Css, Firebase, programación de micro-controladores y desarrollo de hardware (electrónica) 
+              orientado a tecnologías IOT.
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </div>
+    </ion-card>
+  </div>
+</div>

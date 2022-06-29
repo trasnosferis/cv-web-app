@@ -1,0 +1,147 @@
+.full-content{
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+    animation: fade 0.5s forwards;
+    opacity: 1;
+}
+
+#finger{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 15;
+    pointer-events: none;
+}
+
+#finger img{
+    position: absolute;
+    opacity: 0.7;
+    margin-top: 100px;
+    height: 150px;
+    transform: translateX(0px);
+    animation: sliding 3s infinite;
+}
+
+@keyframes sliding {
+    0%{
+        transform: translateX(0px);
+    }
+    50%{
+        transform: translateX(20px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+
+.ionicColor{
+    color: #3880ff;
+    --background: #3880ff;
+}
+.angularColor{
+    color: #dd0031ff;
+    --background: #dd0031ff;
+}
+.capacitorColor{
+    color: #51afffff;
+    --background: #51afffff;
+}
+
+.firebaseColor{
+    color: #ffcb2dff;
+    --background: #ffcb2dff;
+}
+
+
+.model-viewer-scaler{
+    @media screen and (min-width: 601px) {
+        width: 100%;
+        height: 250px;
+    }
+    @media screen and (max-width: 600px) {
+        width: 100%;
+        height: 250px;
+    }
+}
+
+#container {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#container strong {
+    font-size: 20px;
+    line-height: 26px;
+}
+
+#container p {
+    font-size: 16px;
+    line-height: 22px;
+    color: #8c8c8c;
+    margin: 0;
+}
+
+#container a {
+    text-decoration: none;
+}
+
+.swiper-content-full{
+    width: 100%;
+    height: 100%;
+}
+
+.card-proyect{
+    width: 90%;
+    height: 90%;
+}
+
+.title-card{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    padding: 10px;
+    font-size: x-large;
+}
+
+.button-card{
+    position: absolute;
+    bottom: 10px; 
+    right: 10px;
+    left: 10px;
+    color: white !important;
+}
+
+.text-card-content{
+    text-align: start;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.model-viewer-scaler{
+    transform: translateY(0px);
+    animation: viewerfloat 5s infinite;
+}
+
+@keyframes viewerfloat {
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-7px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}

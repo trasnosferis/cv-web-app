@@ -1,0 +1,23 @@
+<div class="full-content">
+  <swiper id="principalSwiper" [slidesPerView]="slidesPerView" class="swiper-content-full"  (touchstart)="initial = false" (sliderMove)="initial = false">
+    <ng-template *ngFor="let i of building" swiperSlide>
+      <div id="finger" *ngIf="initial && slidesPerView < 4" >
+        <img src="../../../assets/images/finger.png" alt="finger">
+      </div>
+      <ion-card class="card-proyect">
+        <ion-card-content >
+          <model-viewer class="model-viewer-scaler" (mouseenter)="dissableSwiper()" (mouseleave)="enableSwiper()" (touchstart)="dissableSwiper()" (touchend)="enableSwiper()"   src="{{i.model}}" ar ar-modes="webxr scene-viewer quick-look" loading="eager" disable-zoom camera-controls environment-image="neutral" shadow-intensity="0">
+            <button slot="ar-button" class="class-viewer"></button>
+          </model-viewer>
+          <div class="title-card">
+            <ion-text class="{{i.titleColor}}">{{i.title}}</ion-text>
+          </div>
+          <div class="text-card-content">
+            {{i.text}}
+          </div>
+        </ion-card-content>
+        <ion-button (click)="openUrlBrowser(i.url)" style="text-transform: none;" class="button-card {{i.titleColor}}">Ir a la pagina oficial de {{i.title}}</ion-button>
+      </ion-card>
+    </ng-template>
+  </swiper>
+</div>

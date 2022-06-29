@@ -1,25 +1,87 @@
 <ion-app>
+  <div id="back-card"  (mousedown)="startPresentation()" (touchstart)="startPresentation()" *ngIf="start" class="background-presentation-open">
+    <ion-card id="presentation">
+      <div id="card-header">
+        <ion-icon color="primary" name="happy-outline"></ion-icon>
+      </div>
+      <ion-card-content>
+        <ion-text>
+          Este curriculum es una <strong>Web App Mobile First</strong>, podrás navegar en sus diferentes secciones para encontrar información y
+          tendrás disponible el repositorio de <strong>Git Hub</strong> donde podrás ver el codigo fuente del proyecto.
+        </ion-text>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <div id="img-user-container-desktop">
+    <ion-card>
+      <div style="position: relative; max-width: 250px; max-height: 250px;">
+        <picture>
+          <source srcset="https://firebasestorage.googleapis.com/v0/b/cv-web-app-4050d.appspot.com/o/imagenes%2Fusuario%2Fperfil.webp?alt=media&token=3359f647-3f77-4211-80fa-7af714f03277">
+          <img style="height: 100%;" class="shadow-bottom" src="https://firebasestorage.googleapis.com/v0/b/cv-web-app-4050d.appspot.com/o/imagenes%2Fusuario%2Fperfil.png?alt=media&token=614ad066-0bc9-496a-b52e-aea5bec85030" alt="Perfil image">
+        </picture>
+      </div>
+      <ion-card-content>
+        <ion-list style="padding: 0px;">
+          <ion-item  lines="none">
+            <ion-avatar slot="start">
+              <img src="https://cdn.pixabay.com/photo/2012/04/15/21/27/colombia-35364_960_720.png" alt="perfil image">
+            </ion-avatar>
+            <ion-label class="ion-text-wrap">
+              <ion-text >Samuel Iglesias
+              </ion-text>
+              <ion-text>trasnosferis@gmail.com
+              </ion-text>
+            </ion-label>
+          </ion-item>
+          <ion-list-header>Hobbies</ion-list-header>
+          <ion-item *ngFor="let label of labels" lines="none">
+            <ion-icon color="primary" slot="start" name="{{label.icon}}"></ion-icon>
+            <ion-label>{{label.text}}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+    <ion-button (click)="menuDesktop()" color="light">
+      <ion-icon id="incon-menu-desktop" color="primary" name="arrow-forward-outline" slot="end"></ion-icon>
+    </ion-button>
+  </div>
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
+      <div id="img-user-container">
+        <ion-item class="item-profile" lines="none">
+          <ion-avatar slot="start">
+            <img src="https://cdn.pixabay.com/photo/2012/04/15/21/27/colombia-35364_960_720.png" alt="perfil image">
+          </ion-avatar>
+          <ion-label class="ion-text-wrap">
+            <ion-text color="light">
+              <h3 style="font-weight: bold;">Samuel Iglesias</h3>
+            </ion-text>
+            <ion-text color="light">
+              <p>trasnosferis@gmail.com</p>
+            </ion-text>
+          </ion-label>
+        </ion-item>
+          <picture>
+            <source srcset="https://firebasestorage.googleapis.com/v0/b/cv-web-app-4050d.appspot.com/o/imagenes%2Fusuario%2Fperfil.webp?alt=media&token=3359f647-3f77-4211-80fa-7af714f03277">
+            <img style="height: 100%;" class="shadow-bottom" src="https://firebasestorage.googleapis.com/v0/b/cv-web-app-4050d.appspot.com/o/imagenes%2Fusuario%2Fperfil.png?alt=media&token=614ad066-0bc9-496a-b52e-aea5bec85030" alt="Perfil image">
+          </picture>
+      </div>
       <ion-content>
         <ion-list id="inbox-list">
-          <ion-list-header>Inbox</ion-list-header>
-          <ion-note>hi@ionicframework.com</ion-note>
-
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
-              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-outline'"></ion-icon>
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
 
         <ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
+          <ion-list-header>Hobbies</ion-list-header>
 
           <ion-item *ngFor="let label of labels" lines="none">
-            <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
-            <ion-label>{{ label }}</ion-label>
+            <ion-icon slot="start" name="{{label.icon}}"></ion-icon>
+            <ion-label>{{label.text}}</ion-label>
           </ion-item>
         </ion-list>
       </ion-content>

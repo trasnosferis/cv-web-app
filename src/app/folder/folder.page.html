@@ -1,21 +1,46 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary" >
+
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
-    <ion-title>{{ folder }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button *ngIf="!isMobile" (click)="qrButton()">
+        <ion-icon name="phone-portrait-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+      <ion-button (click)="openProyectGitHub()">
+        <ion-icon name="logo-github" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title *ngIf="isMobile">{{ folder }}</ion-title>
+
+    <ion-segment scrollable *ngIf="!isMobile" value="{{folder}}" class="custom-segment" (ionChange)="menuNavigate($event)">
+      <ion-segment-button value="Descripción personal">
+        <ion-label>Descripción personal</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Educación">
+        <ion-label>Educación</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Experiencias laborales">
+        <ion-label>Experiencias laborales</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Skills">
+        <ion-label>Skills</ion-label>
+      </ion-segment-button>
+    </ion-segment>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">{{ folder }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<div id="qr-mobile" *ngIf="showQr" (mousedown)="qrButton()" (touchstart)="qrButton()" class="qr-open">
+  <ion-card id="presentation">
+    <ngx-qrcode style="scale: 200px;" [width]="350" [value] = "qrValue" [elementType] = "elementType"></ngx-qrcode>
+  </ion-card>
+</div>  
 
-  <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content [fullscreen]="true">
+  <app-personal-description *ngIf="folder === 'Descripción personal'"></app-personal-description>
+  <app-education *ngIf="folder === 'Educación'"></app-education>
+  <app-work-experience *ngIf="folder === 'Experiencias laborales'"></app-work-experience>
+  <app-skills *ngIf="folder === 'Skills'"></app-skills>
 </ion-content>

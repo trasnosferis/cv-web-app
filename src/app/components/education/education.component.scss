@@ -1,0 +1,114 @@
+#content{
+    width: 100%;
+    background-color: white;
+    animation: fade 0.5s forwards;
+    opacity: 1;
+}
+
+.width-center{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.floating{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    transform: translateY(0px);
+    border-radius: 50%;
+    padding: 0px;
+    background-color: #1595fd;
+    width: 150px; 
+    height: 150px; 
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: iconfloat 5s infinite;
+}
+
+@keyframes iconfloat {
+    0%{
+        box-shadow: 0 5px 10px 0px rgba(0,0,0,0.4);
+        transform: translateY(0px);
+    }
+    50%{
+        box-shadow: 0 20px 10px 0px rgba(0,0,0,0.1);
+        transform: translateY(-10px);
+    }
+    100%{
+        box-shadow: 0 5px 10px 0px rgba(0,0,0,0.4);
+        transform: translateY(0px);
+    }
+}
+
+.border{
+    border-bottom: 1px solid var(--ion-color-step-150, #d7d8da);
+}
+
+.card-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-card {
+    width: 100%;
+    max-width: 800px;
+}
+
+.custom-card ion-item ion-label {
+    text-align: center;
+    font-size: large;
+}
+
+.custom-card ion-card-content {
+    padding: 0px;
+    margin-top: 10px;
+}
+
+.custom-card #icon-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-card ion-icon {
+    font-size: 30px;
+}
+
+.custom-card #title {
+    //font-weight: bold;
+    color: black;
+}
+
+
+.custom-card #date {
+    position: absolute; top: 3px; right: 3px; font-size: x-small;
+    color: rgb(190, 190, 190);
+}
+
+@media screen and (min-width: 821px) {
+    #content{
+        height: 100%;
+    }
+    .custom-card {
+      height: 100%;
+    }
+    .custom-card ion-card-content {
+        padding: 0px;
+        height: 100%;
+        margin-top: 0px;
+        overflow-y: scroll;
+    }
+    .custom-card ion-card-content ion-grid {
+        margin-bottom: 80px;
+    }
+
+    .card-container{
+        height: 50%;
+    }
+}
