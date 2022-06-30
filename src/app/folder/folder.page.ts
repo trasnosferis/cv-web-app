@@ -15,7 +15,7 @@ export class FolderPage implements OnInit {
   isMobile = false;
   //Qr show in mobile
   showQr = false;   elementType: 'url' | 'canvas' | 'img' = 'canvas';
-  qrValue = 'https://prep.soyhenry.com/challenge/'
+  qrValue = 'https://cv-web-app-4050d.web.app/'
   constructor(private activatedRoute: ActivatedRoute, private menuController: MenuController, private platform: Platform,
               private iab: InAppBrowser, private router: Router) { 
   }
@@ -36,7 +36,6 @@ export class FolderPage implements OnInit {
   }
 
   menuNavigate(url){
-    console.log(url.detail.value);
     this.folder = url.detail.value;
   }
 
@@ -55,7 +54,7 @@ export class FolderPage implements OnInit {
   }
 
   openProyectGitHub(){
-    this.iab.create('https://www.google.com', '_blank');
+    this.iab.create('https://github.com/trasnosferis/cv-web-app/tree/master', '_blank');
   }
 
   @HostListener('window:resize', ['$event'])
@@ -66,6 +65,9 @@ export class FolderPage implements OnInit {
     } else if (event.target.innerWidth < 850){
       this.menuController.enable(true);
       this.isMobile = true;
+      if(this.activatedRoute.snapshot.paramMap.get('id') === 'Cv-Proyect'){
+        this.router.navigate(['folder/Descripción personal']);
+      }
     }
   }
 }

@@ -25,7 +25,6 @@ export class AppComponent implements OnInit{
     let menu: any = document.getElementById('img-user-container-desktop');
     let icon: any = document.getElementById('incon-menu-desktop');
     let adjust = icon.className;
-    console.log(adjust);
     if(menu.className === 'open-menu') {
       menu.className = 'close-menu';
       icon.className = 'md ion-color ion-color-primary hydrated icon-close';
@@ -39,6 +38,7 @@ export class AppComponent implements OnInit{
     document.getElementById('back-card').className = 'background-presentation-close';
     setTimeout(() => {      
       this.start = false;
+      this.menuDesktop();
       this.menuController.open();
     }, 300);
   }

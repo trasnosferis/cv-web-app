@@ -66,7 +66,6 @@ export class WorkExperienceComponent implements OnInit {
   autoPlay() {
     let swips: any = document.getElementById('principalSwiper');
     swips.swiper.slideTo((swips.swiper.activeIndex + 1), 600, false);
-    console.log(swips.swiper);
   }
 
   @HostListener('window:resize', ['$event'])
