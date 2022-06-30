@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
+import { Title } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -15,10 +17,11 @@ export class AppComponent implements OnInit{
     { title: 'Skills', url: '/folder/Skills', icon: 'reader' },
   ];
   public labels = [{text: 'Leer', icon: 'book-outline'}, {text: 'Escuchar música', icon: 'musical-notes-outline'}, {text: 'Viajar', icon: 'map-outline'}, {text: 'Videojuegos', icon: 'game-controller-outline'}];
-  constructor(private menuController: MenuController) {}
+  constructor(private menuController: MenuController, private title: Title) {}
 
   ngOnInit(){
     this.start = true;
+    this.title.setTitle('Cv Samuel Iglesias');
   }
 
   menuDesktop(){
