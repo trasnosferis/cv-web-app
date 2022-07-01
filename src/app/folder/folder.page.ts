@@ -15,7 +15,9 @@ export class FolderPage implements OnInit {
   isMobile = false;
   //Qr show in mobile
   showQr = false;   elementType: 'url' | 'canvas' | 'img' = 'canvas';
-  qrValue = 'https://cv-web-app-4050d.web.app/'
+  qrValue = 'https://cv-web-app-4050d.web.app/';
+  // Routes
+  routesAcces = ['Descripción personal', 'Edicación', 'Experiencias laborales', 'Skills', 'Cv-Proyect'];
   constructor(private activatedRoute: ActivatedRoute, private menuController: MenuController, private platform: Platform,
               private iab: InAppBrowser, private router: Router) { 
   }
@@ -30,6 +32,9 @@ export class FolderPage implements OnInit {
         this.folder = 'Descripción personal';
       });
     } else if (width < 850){
+      if(!this.routesAcces.includes(this.folder)){
+        this.router.navigate(['folder/Descripción personal']);
+      }
       this.menuController.enable(true);
       this.isMobile = true;
     }
