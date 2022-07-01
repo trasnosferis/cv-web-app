@@ -32,11 +32,15 @@ export class FolderPage implements OnInit {
         this.folder = 'Descripción personal';
       });
     } else if (width < 850){
-      if(!this.routesAcces.includes(this.folder)){
-        this.router.navigate(['folder/Descripción personal']);
-      }
       this.menuController.enable(true);
       this.isMobile = true;
+    }
+  }
+
+  ionViewWillEnter(){
+      if(!this.routesAcces.includes(this.folder)){
+      this.router.navigate(['folder/Descripción personal']);
+      console.log('ok');
     }
   }
 
