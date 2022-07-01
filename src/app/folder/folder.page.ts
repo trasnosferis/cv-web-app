@@ -37,12 +37,12 @@ export class FolderPage implements OnInit {
     }
   }
 
-  ionViewWillEnter(){
-      if(!this.routesAcces.includes(this.folder)){
-      this.router.navigate(['folder/Descripción personal']);
-      console.log('ok');
-    }
-  }
+  // ionViewWillEnter(){
+  //   if(!this.routesAcces.includes(this.folder)){
+  //     this.router.navigate(['folder/Descripción personal']);
+  //     console.log('ok');
+  //   }
+  // }
 
   menuNavigate(url){
     this.folder = url.detail.value;
