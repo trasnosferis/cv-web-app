@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -17,17 +18,17 @@ export class AppComponent implements OnInit{
     { title: 'Skills', url: '/folder/Skills', icon: 'reader' },
   ];
   public labels = [{text: 'Leer', icon: 'book-outline'}, {text: 'Escuchar música', icon: 'musical-notes-outline'}, {text: 'Viajar', icon: 'map-outline'}, {text: 'Videojuegos', icon: 'game-controller-outline'}];
-  constructor(private menuController: MenuController, private title: Title) {}
+  constructor(private menuController: MenuController, private title: Title, private router: Router) {}
 
   ngOnInit(){
     this.start = true;
     this.title.setTitle('Cv Samuel Iglesias');
+    this.router.navigate(['folder/Descripción personal']);
   }
 
   menuDesktop(){
     let menu: any = document.getElementById('img-user-container-desktop');
     let icon: any = document.getElementById('incon-menu-desktop');
-    let adjust = icon.className;
     if(menu.className === 'open-menu') {
       menu.className = 'close-menu';
       icon.className = 'md ion-color ion-color-primary hydrated icon-close';
