@@ -16,8 +16,8 @@ export class FolderPage implements OnInit {
   //Qr show in mobile
   showQr = false;   elementType: 'url' | 'canvas' | 'img' = 'canvas';
   qrValue = 'https://cv-web-app-4050d.web.app/';
-  // Routes
-  routesAcces = ['Descripción personal', 'Edicación', 'Experiencias laborales', 'Skills', 'Cv-Proyect'];
+  //Routes
+  routesAcces = ['Descripción personal', 'Educación', 'Experiencias laborales', 'Skills', 'Cv-Proyect'];
   constructor(private activatedRoute: ActivatedRoute, private menuController: MenuController, private platform: Platform,
               private iab: InAppBrowser, private router: Router) { 
   }
