@@ -35,6 +35,7 @@ export class FolderPage implements OnInit {
       this.menuController.enable(true);
       this.isMobile = true;
     }
+    console.log('ALLLL INIOT OK');
   }
 
   // ionViewWillEnter(){
