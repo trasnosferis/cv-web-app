@@ -35,15 +35,15 @@ export class FolderPage implements OnInit {
       this.menuController.enable(true);
       this.isMobile = true;
     }
-    console.log('ALLLL INIOT OK');
   }
 
-  // ionViewWillEnter(){
-  //   if(!this.routesAcces.includes(this.folder)){
-  //     this.router.navigate(['folder/Descripción personal']);
-  //     console.log('ok');
-  //   }
-  // }
+  ionViewWillEnter(){
+    if(!this.routesAcces.includes(this.folder)){
+      this.router.navigate(['folder/Descripción personal']);
+      console.log('ok');
+    }
+    console.log('ALLLL INIOT OK will enter');
+  }
 
   menuNavigate(url){
     this.folder = url.detail.value;
