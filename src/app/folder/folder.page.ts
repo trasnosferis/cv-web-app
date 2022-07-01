@@ -42,7 +42,6 @@ export class FolderPage implements OnInit {
       this.router.navigate(['folder/Descripción personal']);
       console.log('ok');
     }
-    console.log('ALLLL INIOT OK will enter');
   }
 
   menuNavigate(url){
